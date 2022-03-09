@@ -1,2 +1,1 @@
-cd terraform
-nix-shell -p terraform --command "terraform init"
+nix-shell -p terraform --command  "terraform init --var-file=settings/common.tfvars"

@@ -1,2 +1,1 @@
-cd terraform
-nix-shell -p terraform --command "terraform apply --destroy --auto-approve"
+nix-shell -p terraform --command "terraform apply --var-file=settings/common.tfvars --destroy --auto-approve"

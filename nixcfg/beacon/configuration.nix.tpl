@@ -13,6 +13,7 @@
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
+  boot.loader.grub.device = "/dev/vda";
   # boot.loader.grub.efiSupport = true;
   # boot.loader.grub.efiInstallAsRemovable = true;
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
@@ -87,10 +88,10 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 4096 12345 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -106,9 +107,11 @@
     enable = true;
     passwordAuthentication = false;
     permitRootLogin = "yes";
+    ports = [ 4096 ];
   };
 
   users.users.root.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEmevmKOuqbIXYWHyqEcadWdZm6aE2GI9/67ZyhkAdE0 max@eros-1646593715"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO+9F4T/M90bgKJhXJGZQpH5ysTqkd6ypq29VmqD8gCR max@cb"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPoi4Nas/YbyPls0MvV6D9lKD1gNa6Z9HuUHxFYoUdBD max@eros"
   ];
 }

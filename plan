@@ -1,0 +1,2 @@
+cd terraform
+nix-shell -p terraform --command "terraform plan"
